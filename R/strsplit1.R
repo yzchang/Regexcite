@@ -8,20 +8,21 @@
 #'
 #' @examples
 #' s <- "alfa,bravo,charlie,delta"
-#' strsplit1(s)
+#' str_split_one(s)
 #'
 #' s <- "echo:foxtrot:golf:hotel"
-#' strsplit1(s, ':')
+#' str_split_one(s, ':')
 #'
 #' s <- "thiswillnotbesplit"
-#' strsplit1(s)
-strsplit1 <- function(s, sep=',') {
+#' str_split_one(s)
+str_split_one <- function(s, sep=',') {
   strsplit(s, split = sep)[[1]]
 }
 
 #' Split a character vector into a list of character vectors
 #'
-#' @inheritParams stringr::str_split
+#' @param string Input vector, a character vector, or something coercible to one.
+#' @param pattern The pattern to look for.
 #'
 #' @return A list of character vectors
 #' @export
@@ -31,8 +32,8 @@ strsplit1 <- function(s, sep=',') {
 #'   "apples and oranges and pears and bananas",
 #'    "pineapples and mangos and guavas"
 #'  )
-#'  str_split_one(fruits, " and ")
-str_split_one <- function(string, pattern = ',') {
+#'  str_split_multi(fruits, " and ")
+str_split_multi <- function(string, pattern = ',') {
   stopifnot(
     TRUE
     , is.character(string)
@@ -48,7 +49,7 @@ str_split_one <- function(string, pattern = ',') {
       )),
       function(x) x[!is.na(x) & x != ''])
   } else if (length(string) == 1) {
-    strsplit1(string, pattern)
+    str_split_one(string, pattern)
   } else {
     character()
   }

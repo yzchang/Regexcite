@@ -2,39 +2,28 @@
 % Please edit documentation in R/strsplit1.R
 \name{str_split_one}
 \alias{str_split_one}
-\title{Split a character vector into a list of character vectors}
+\title{Split a string into a list of substrings separated by the given separator.}
 \usage{
-str_split_one(string, pattern = ",")
+str_split_one(s, sep = ",")
 }
 \arguments{
-\item{string}{Input vector. Either a character vector, or something
-coercible to one.}
+\item{s}{A character vector with one element to be split.}
 
-\item{pattern}{Pattern to look for.
-
-The default interpretation is a regular expression, as described in
-\code{vignette("regular-expressions")}. Use \code{\link[stringr:regex]{regex()}} for finer control of the
-matching behaviour.
-
-Match a fixed string (i.e. by comparing only bytes), using
-\code{\link[stringr:fixed]{fixed()}}. This is fast, but approximate. Generally,
-for matching human text, you'll want \code{\link[stringr:coll]{coll()}} which
-respects character matching rules for the specified locale.
-
-Match character, word, line and sentence boundaries with
-\code{\link[stringr:boundary]{boundary()}}. An empty pattern, "", is equivalent to
-\code{boundary("character")}.}
+\item{sep}{The separating character to split on. Default: ','}
 }
 \value{
-A list of character vectors
+A character vector of one or more elements
 }
 \description{
-Split a character vector into a list of character vectors
+Split a string into a list of substrings separated by the given separator.
 }
 \examples{
-fruits <- c(
-  "apples and oranges and pears and bananas",
-   "pineapples and mangos and guavas"
- )
- str_split_one(fruits, " and ")
+s <- "alfa,bravo,charlie,delta"
+str_split_one(s)
+
+s <- "echo:foxtrot:golf:hotel"
+str_split_one(s, ':')
+
+s <- "thiswillnotbesplit"
+str_split_one(s)
 }
