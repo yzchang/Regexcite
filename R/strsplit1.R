@@ -18,3 +18,38 @@
 strsplit1 <- function(s, sep=',') {
   strsplit(s, split = sep)[[1]]
 }
+
+#' Split a character vector into a list of character vectors
+#'
+#' @inheritParams stringr::str_split
+#'
+#' @return A list of character vectors
+#' @export
+#'
+#' @examples
+#' fruits <- c(
+#'   "apples and oranges and pears and bananas",
+#'    "pineapples and mangos and guavas"
+#'  )
+#'  str_split_one(fruits, " and ")
+str_split_one <- function(string, pattern = ',') {
+  stopifnot(
+    TRUE
+    , is.character(string)
+    , is.character(pattern)
+    , nchar(pattern) >= 1
+    )
+
+  if (length(string) > 1 | nchar(pattern) > 1) {
+    lapply(
+      list(c(
+        stringr::str_split(string = string, pattern = pattern,
+                           n = Inf, simplify = TRUE)
+      )),
+      function(x) x[!is.na(x) & x != ''])
+  } else if (length(string) == 1) {
+    strsplit1(string, pattern)
+  } else {
+    character()
+  }
+}
