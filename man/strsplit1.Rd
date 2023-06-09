@@ -7,12 +7,12 @@
 strsplit1(s, sep = ",")
 }
 \arguments{
-\item{s}{The string (i.e. a character vector with one element) to be splited.}
+\item{s}{A character vector with one element to be split.}
 
 \item{sep}{The separating character to split on. Default: ','}
 }
 \value{
-A character vector
+A character vector of one or more elements
 }
 \description{
 Split a string into a list of substrings separated by the given separator.

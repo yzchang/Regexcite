@@ -1,9 +1,9 @@
 #' Split a string into a list of substrings separated by the given separator.
 #'
-#' @param s The string (i.e. a character vector with one element) to be splited.
+#' @param s A character vector with one element to be split.
 #' @param sep The separating character to split on. Default: ','
 #'
-#' @return A character vector
+#' @return A character vector of one or more elements
 #' @export
 #'
 #' @examples
