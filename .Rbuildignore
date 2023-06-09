@@ -2,3 +2,4 @@
 ^renv\.lock$
 ^Regexcite\.Rproj$
 ^\.Rproj\.user$
+^LICENSE\.md$
