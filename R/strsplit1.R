@@ -7,11 +7,14 @@
 #' @export
 #'
 #' @examples
-#' x <- "alfa,bravo,charlie,delta"
-#' strsplit1(x)
+#' s <- "alfa,bravo,charlie,delta"
+#' strsplit1(s)
 #'
-#' x <- "echo;foxtrot;golf;hotel"
-#' strsplit1(x, ';')
+#' s <- "echo:foxtrot:golf:hotel"
+#' strsplit1(s, ':')
+#'
+#' s <- "thiswillnotbesplit"
+#' strsplit1(s)
 strsplit1 <- function(s, sep=',') {
   strsplit(s, split = sep)[[1]]
 }
